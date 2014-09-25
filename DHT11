@@ -1,0 +1,26 @@
+#include <dht11.h>   
+#define dht_dpin 2  
+  
+dht11 DHT11;   
+const byte dataPin = 2;
+  
+void setup(){   
+  Serial.begin(9600);   
+  delay(300);                
+  Serial.println("Humidity and temperature\n");   
+  delay(700);             
+}
+  
+void loop(){   
+  int chk = DHT11.read(dataPin);   
+  
+  Serial.print("Humidity = ");   
+  Serial.print(DHT11.humidity);   
+  Serial.print("% ");   
+  
+  Serial.print("temperature = ");   
+  Serial.print(DHT11.temperature);   
+  Serial.println("C ");   
+  
+  delay(1000);            
+}
